@@ -46,7 +46,7 @@ h3. Table placeholders
 
 To use table placeholders, you should create a Table in your document and give it a name. In OpenOffice, it's just a matter of right-clicking the table you just created, choose _Table Properties..._ and type a name in the Name field.
 
-If you inform @:header=>true@, the first row will be treated as a *header* and left untouched. The remaining rows will be used as the template for the table. If you have more than one template row, they will be cycled. This is usefull for making zebra tables.
+If you inform @:header=>true@, the first row will be treated as a *header* and left untouched. The remaining rows will be used as the template for the table. If you have more than one template row, they will be cycled. This is usefull for making zebra tables. If @:template_row@ is specified in collection, the corresponding template row will be used.
 
 As with Field placeholders, just insert a @[FIELD_NAME]@ in each cell and let the magic takes place.
 

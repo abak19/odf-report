@@ -35,7 +35,11 @@ class Table
 
     @collection.each do |data_item|
 
-      new_node = get_next_row
+      if data_item.key?(:template_row)
+        new_node = get_row(data_item[:template_row])
+      else
+        new_node = get_next_row
+      end
 
       @tables.each    { |t| t.replace!(new_node, data_item) }
 
@@ -64,6 +68,14 @@ private
     else
       @row_cursor += 1
     end
+    return ret.dup
+  end
+
+  def get_row(index)
+    index = index.to_i
+    index = get_start_node unless index > get_start_node
+    index = @template_rows.size - 1 unless index < @template_rows.size
+    ret = @template_rows[index]
     return ret.dup
   end
 
